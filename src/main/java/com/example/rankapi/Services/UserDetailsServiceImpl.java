@@ -1,5 +1,6 @@
-package com.example.rankapi.User;
+package com.example.rankapi.Services;
 
+import com.example.rankapi.Repositories.AppUserRepository;
 import org.springframework.context.annotation.Primary;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
