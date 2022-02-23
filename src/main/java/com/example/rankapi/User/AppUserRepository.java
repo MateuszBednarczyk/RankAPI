@@ -1,4 +1,4 @@
-package com.example.rankapi;
+package com.example.rankapi.User;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,4 +1,4 @@
-package com.example.rankapi;
+package com.example.rankapi.User;
 
 import org.springframework.context.annotation.Primary;
 import org.springframework.security.core.userdetails.UserDetails;
