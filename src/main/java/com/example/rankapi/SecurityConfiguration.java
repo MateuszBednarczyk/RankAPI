@@ -17,12 +17,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         this.userDetailsServiceImpl = userDetailsServiceImpl;
     }
 
-    private PasswordEncoder getPasswordEncoder(){
-
-        return new BCryptPasswordEncoder();
-
-    }
-
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
