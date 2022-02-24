@@ -10,17 +10,17 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private UserDetailsServiceImpl userDetailsServiceImpl;
-    private SufixConfiguration encodeService;
+    private SufixConfiguration sufixConfiguration;
 
     public SecurityConfiguration(UserDetailsServiceImpl userDetailsServiceImpl, SufixConfiguration encodeService) {
         this.userDetailsServiceImpl = userDetailsServiceImpl;
-        this.encodeService = encodeService;
+        this.sufixConfiguration = encodeService;
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
-        auth.userDetailsService(userDetailsServiceImpl).passwordEncoder(encodeService.getPasswordEncoder());
+        auth.userDetailsService(userDetailsServiceImpl).passwordEncoder(sufixConfiguration.getPasswordEncoder());
 
     }
 

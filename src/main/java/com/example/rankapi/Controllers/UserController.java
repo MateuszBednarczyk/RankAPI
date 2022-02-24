@@ -11,16 +11,16 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     private AppUserRepository appUserRepository;
-    private SufixConfiguration encodeService;
+    private SufixConfiguration sufixConfiguration;
 
     public UserController(AppUserRepository appUserRepository, SufixConfiguration encodeService) {
         this.appUserRepository = appUserRepository;
-        this.encodeService = encodeService;
+        this.sufixConfiguration = encodeService;
     }
 
     @PostMapping("/createuser")
     public void createUser(@RequestBody AppUser appUser) {
-        appUser.setPassword(encodeService.getPasswordEncoder().encode(appUser.getPassword()));
+        appUser.setPassword(sufixConfiguration.getPasswordEncoder().encode(appUser.getPassword()));
         appUserRepository.save(appUser);
     }
 
