@@ -1,0 +1,11 @@
+package com.example.rankapi.Services;
+
+import com.example.rankapi.Repositories.RankRepository;
+import org.springframework.stereotype.Service;
+
+@Service
+public class RankingService {
+
+    private RankRepository rankRepository;
+
+}
