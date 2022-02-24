@@ -13,10 +13,10 @@ public class LoginController {
 
     }
 
-    @RequestMapping("/games")
+    @RequestMapping("/home")
     public String games(){
 
-        return "games.html";
+        return "home.html";
     }
 
 }

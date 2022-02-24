@@ -2,7 +2,7 @@ package com.example.rankapi.Controllers;
 
 import com.example.rankapi.Entities.AppUser;
 import com.example.rankapi.Repositories.AppUserRepository;
-import com.example.rankapi.Services.EncodeService;
+import com.example.rankapi.Configurations.SufixConfiguration;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     private AppUserRepository appUserRepository;
-    private EncodeService encodeService;
+    private SufixConfiguration encodeService;
 
-    public UserController(AppUserRepository appUserRepository, EncodeService encodeService) {
+    public UserController(AppUserRepository appUserRepository, SufixConfiguration encodeService) {
         this.appUserRepository = appUserRepository;
         this.encodeService = encodeService;
     }

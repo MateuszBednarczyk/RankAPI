@@ -10,22 +10,24 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private UserDetailsServiceImpl userDetailsServiceImpl;
+    private SufixConfiguration encodeService;
 
-    public SecurityConfiguration(UserDetailsServiceImpl userDetailsServiceImpl) {
+    public SecurityConfiguration(UserDetailsServiceImpl userDetailsServiceImpl, SufixConfiguration encodeService) {
         this.userDetailsServiceImpl = userDetailsServiceImpl;
+        this.encodeService = encodeService;
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
-        auth.userDetailsService(userDetailsServiceImpl);
+        auth.userDetailsService(userDetailsServiceImpl).passwordEncoder(encodeService.getPasswordEncoder());
 
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers("/*").permitAll();
-        http.formLogin().loginPage("/login").successForwardUrl("/games");
+        http.formLogin().loginPage("/login").successForwardUrl("/home").permitAll();
         http.csrf().disable();
     }
 }
