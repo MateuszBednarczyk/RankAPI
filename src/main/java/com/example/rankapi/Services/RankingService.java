@@ -19,4 +19,30 @@ public class RankingService {
 
     }
 
+    public void deleteByGametitle(String gameTitle){
+
+        rankRepository.deleteByGametitle(gameTitle);
+
+    }
+
+    public boolean checkRank(Rank rank, String gameTitle){
+
+        if(rankRepository.findRankByGametitle(gameTitle) == null){
+
+            return false;
+
+        }else{
+            long oldScore = rankRepository.findRankByGametitle(gameTitle).getScore();
+            long newScore = rank.getScore();
+            if (newScore>oldScore){
+
+                return false;
+
+            }else{
+
+                return true;
+
+            }
+        }
+    }
 }

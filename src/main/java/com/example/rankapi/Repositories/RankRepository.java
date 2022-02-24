@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RankRepository extends JpaRepository<Rank, Long> {
     Rank findRankByGametitle(String gameTitle);
+    void deleteByGametitle(String gameTitle);
 }
