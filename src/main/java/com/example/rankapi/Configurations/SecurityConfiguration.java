@@ -1,6 +1,6 @@
 package com.example.rankapi.Configurations;
 
-import com.example.rankapi.User.UserDetailsServiceImpl;
+import com.example.rankapi.Services.UserDetailsServiceImpl;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

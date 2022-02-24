@@ -1,4 +1,4 @@
-package com.example.rankapi.User;
+package com.example.rankapi.Services;
 
 import org.springframework.context.annotation.Primary;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

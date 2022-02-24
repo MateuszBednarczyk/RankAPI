@@ -1,6 +1,8 @@
-package com.example.rankapi.User;
+package com.example.rankapi.Controllers;
 
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import com.example.rankapi.Entities.AppUser;
+import com.example.rankapi.Repositories.AppUserRepository;
+import com.example.rankapi.Services.EncodeService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;

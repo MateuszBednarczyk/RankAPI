@@ -1,5 +1,13 @@
-*{
+body{
 
     text-align: center;
+    align-items: center;
+
+}
+.loginform
+{
+
+    text-align: center;
+
 
 }

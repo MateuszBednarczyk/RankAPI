@@ -1,4 +1,4 @@
-package com.example.rankapi.User;
+package com.example.rankapi.Entities;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
