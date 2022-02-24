@@ -9,6 +9,10 @@ public class RankingService {
 
     private RankRepository rankRepository;
 
+    public RankingService(RankRepository rankRepository) {
+        this.rankRepository = rankRepository;
+    }
+
     public Rank getHighestRank(String gameTitle) {
 
         return rankRepository.findRankByGametitle(gameTitle);
