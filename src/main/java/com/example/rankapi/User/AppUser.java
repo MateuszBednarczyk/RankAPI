@@ -1,4 +1,4 @@
-package com.example.rankapi.Entities;
+package com.example.rankapi.User;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -14,12 +14,12 @@ public class AppUser implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long userId;
+    private long user_id;
     private String username;
     private String password;
 
-    public void setUserId(long userId) {
-        this.userId = userId;
+    public void setUser_id(long userId) {
+        this.user_id = userId;
     }
 
     public void setUsername(String username) {
@@ -32,7 +32,7 @@ public class AppUser implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.singleton(new SimpleGrantedAuthority("ROLE_USER"));
+        return Collections.singleton(new SimpleGrantedAuthority("ROLE_ADMIN"));
     }
 
     @Override

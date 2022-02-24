@@ -1,4 +1,4 @@
-package com.example.rankapi.Controllers;
+package com.example.rankapi.User;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +11,12 @@ public class LoginController {
 
         return "login.html";
 
+    }
+
+    @RequestMapping("/games")
+    public String games(){
+
+        return "games.html";
     }
 
 }
