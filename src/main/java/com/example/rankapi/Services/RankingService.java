@@ -31,10 +31,27 @@ public class RankingService {
 
             return false;
 
-        }else{
+        }else if(rank.getGametitle().equals(gameTitle)) {
             long oldScore = rankRepository.findRankByGametitle(gameTitle).getScore();
             long newScore = rank.getScore();
-            if (newScore>oldScore){
+            if (newScore > oldScore) {
+
+                return false;
+
+            } else {
+
+                return true;
+
+            }
+        }else if(!rank.getGametitle().equals(gameTitle)){
+
+            return false;
+
+        }else{
+
+            long oldScore = rankRepository.findRankByGametitle(gameTitle).getScore();
+            long newScore = rank.getScore();
+            if (newScore>oldScore) {
 
                 return false;
 
@@ -43,6 +60,7 @@ public class RankingService {
                 return true;
 
             }
+
         }
     }
 }
