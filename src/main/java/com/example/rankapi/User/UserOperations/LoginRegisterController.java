@@ -18,6 +18,11 @@ public class LoginRegisterController {
         this.sufixConfiguration = sufixConfiguration;
     }
 
+    @RequestMapping("/")
+    public String index() {
+        return "redirect:/login";
+    }
+
     @RequestMapping("/login")
     public String login(){
 
