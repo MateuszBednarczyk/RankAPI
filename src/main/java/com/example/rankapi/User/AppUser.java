@@ -14,12 +14,12 @@ public class AppUser implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long user_id;
+    private long userid;
     private String username;
     private String password;
 
-    public void setUser_id(long userId) {
-        this.user_id = userId;
+    public void setUserid(long userId) {
+        this.userid = userId;
     }
 
     public void setUsername(String username) {
