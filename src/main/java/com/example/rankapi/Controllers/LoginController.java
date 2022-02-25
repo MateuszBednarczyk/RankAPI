@@ -13,6 +13,13 @@ public class LoginController {
 
     }
 
+    @RequestMapping("/register")
+    public String register(){
+
+        return "test reg";
+
+    }
+
     @RequestMapping("/home")
     public String games(){
 
