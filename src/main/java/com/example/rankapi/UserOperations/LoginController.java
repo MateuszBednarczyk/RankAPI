@@ -1,4 +1,4 @@
-package com.example.rankapi.Controllers;
+package com.example.rankapi.UserOperations;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

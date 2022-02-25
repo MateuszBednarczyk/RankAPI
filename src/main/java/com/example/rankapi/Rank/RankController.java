@@ -1,12 +1,8 @@
-package com.example.rankapi.Controllers;
+package com.example.rankapi.Rank;
 
-import com.example.rankapi.Entities.Rank;
-import com.example.rankapi.Repositories.RankRepository;
-import com.example.rankapi.Services.RankingService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
-import java.security.Principal;
 
 @RestController
 public class RankController {

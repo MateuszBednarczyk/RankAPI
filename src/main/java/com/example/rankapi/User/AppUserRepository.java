@@ -1,6 +1,5 @@
-package com.example.rankapi.Repositories;
+package com.example.rankapi.User;
 
-import com.example.rankapi.Entities.AppUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

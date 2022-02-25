@@ -1,7 +1,5 @@
-package com.example.rankapi.Controllers;
+package com.example.rankapi.User;
 
-import com.example.rankapi.Entities.AppUser;
-import com.example.rankapi.Repositories.AppUserRepository;
 import com.example.rankapi.Configurations.SufixConfiguration;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

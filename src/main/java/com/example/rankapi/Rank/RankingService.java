@@ -1,7 +1,5 @@
-package com.example.rankapi.Services;
+package com.example.rankapi.Rank;
 
-import com.example.rankapi.Entities.Rank;
-import com.example.rankapi.Repositories.RankRepository;
 import org.springframework.stereotype.Service;
 
 @Service

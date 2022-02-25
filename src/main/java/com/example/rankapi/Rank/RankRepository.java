@@ -1,6 +1,5 @@
-package com.example.rankapi.Repositories;
+package com.example.rankapi.Rank;
 
-import com.example.rankapi.Entities.Rank;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

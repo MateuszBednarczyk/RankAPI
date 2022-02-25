@@ -1,4 +1,4 @@
-package com.example.rankapi.Entities;
+package com.example.rankapi.Rank;
 
 import javax.persistence.*;
 
