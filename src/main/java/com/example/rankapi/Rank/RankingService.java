@@ -39,13 +39,14 @@ public class RankingService {
             }
         }
 
-        if(rankRepository.findAllByGametitleOrderByScore(gameTitle).stream().noneMatch(newRank -> newRank.getUsername().equals(rank.getUsername()) &
+        if(rankRepository.findAllByGametitleOrderByScore(gameTitle)
+                .stream()
+                .noneMatch(newRank -> newRank.getUsername().equals(rank.getUsername()) &
                 newRank.getGametitle().equals(rank.getGametitle()))){
 
             rankRepository.save(rank);
 
         }
-
     }
 
     //Getting value for only highest rank
