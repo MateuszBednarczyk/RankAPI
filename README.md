@@ -25,8 +25,8 @@ You can use it for creating ranking in your game.
 </ol>
 
 # <b>DATABASE STRUCTURE</b>
-        SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-``START TRANSACTION;
+``SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 CREATE TABLE `hibernate_sequence` (
@@ -59,4 +59,5 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
 
 ALTER TABLE `users`
 MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
-COMMIT;``
+COMMIT;
+``
