@@ -1,6 +1,11 @@
 package com.example.rankapi.Rank;
 
+import java.util.Collections;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
 
 @Service
 public class RankingService {
@@ -17,48 +22,70 @@ public class RankingService {
 
     }
 
-    public void deleteByGametitle(String gameTitle){
+    public List<Rank> getListedRank(String gameTitle){
 
-        rankRepository.deleteByGametitle(gameTitle);
+        return rankRepository.findAllByGametitleOrderByScore(gameTitle);
 
     }
 
-    public boolean checkRank(Rank rank, String gameTitle){
+    public void addRank(String gameTitle, Rank rank){
 
-        if(rankRepository.findRankByGametitle(gameTitle) == null){
+        for (Rank entityInRank : rankRepository.findAllByGametitleOrderByScore(gameTitle)) {
+            if (entityInRank.getUsername().equals(rank.getUsername()) & rank.getScore() > entityInRank.getScore()) {
 
-            return false;
-
-        }else if(rank.getGametitle().equals(gameTitle)) {
-            long oldScore = rankRepository.findRankByGametitle(gameTitle).getScore();
-            long newScore = rank.getScore();
-            if (newScore > oldScore) {
-
-                return false;
-
-            } else {
-
-                return true;
+                rankRepository.deleteRankByGametitleAndUsername(gameTitle, rank.getUsername());
+                rankRepository.save(rank);
 
             }
-        }else if(!rank.getGametitle().equals(gameTitle)){
+        }
 
-            return false;
+        if(rankRepository.findAllByGametitleOrderByScore(gameTitle).stream().noneMatch(newRank -> newRank.getUsername().equals(rank.getUsername()) &
+                newRank.getGametitle().equals(rank.getGametitle()))){
 
-        }else{
-
-            long oldScore = rankRepository.findRankByGametitle(gameTitle).getScore();
-            long newScore = rank.getScore();
-            if (newScore>oldScore) {
-
-                return false;
-
-            }else{
-
-                return true;
-
-            }
+            rankRepository.save(rank);
 
         }
+
     }
+
+    //Getting value for only highest rank
+
+//    public boolean checkRank(Rank rank, String gameTitle){
+//
+//        if(rankRepository.findRankByGametitle(gameTitle) == null){
+//
+//            return false;
+//
+//        }else if(rank.getGametitle().equals(gameTitle)) {
+//            long oldScore = rankRepository.findRankByGametitle(gameTitle).getScore();
+//            long newScore = rank.getScore();
+//            if (newScore > oldScore) {
+//
+//                return false;
+//
+//            } else {
+//
+//                return true;
+//
+//            }
+//        }else if(!rank.getGametitle().equals(gameTitle)){
+//
+//            return false;
+//
+//        }else{
+//
+//            long oldScore = rankRepository.findRankByGametitle(gameTitle).getScore();
+//            long newScore = rank.getScore();
+//            if (newScore>oldScore) {
+//
+//                return false;
+//
+//            }else{
+//
+//                return true;
+//
+//            }
+//
+//        }
+//    }
 }
