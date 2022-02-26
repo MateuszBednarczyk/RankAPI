@@ -4,11 +4,11 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 @Service
-public class RankingService {
+public class RankService {
 
     private RankRepository rankRepository;
 
-    public RankingService(RankRepository rankRepository) {
+    public RankService(RankRepository rankRepository) {
         this.rankRepository = rankRepository;
     }
 

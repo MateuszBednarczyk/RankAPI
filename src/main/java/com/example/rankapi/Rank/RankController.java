@@ -8,24 +8,24 @@ import javax.transaction.Transactional;
 @RestController
 public class RankController {
 
-    private RankingService rankingService;
+    private RankService rankService;
 
-    public RankController(RankingService rankingService) {
-        this.rankingService = rankingService;
+    public RankController(RankService rankingService) {
+        this.rankService = rankingService;
     }
 
     @GetMapping("/rank/{gameTitle}")
     public List<Rank> getRank(@PathVariable String gameTitle){
 
-        return rankingService.getListedRank(gameTitle);
+        return rankService.getListedRank(gameTitle);
 
     }
 
     @Transactional
     @PostMapping("/rank/{gameTitle}/add")
     public List<Rank> addRank(@PathVariable String gameTitle, @RequestBody Rank rank){
-        rankingService.addRank(gameTitle, rank);
-        return rankingService.getListedRank(gameTitle);
+        rankService.addRank(gameTitle, rank);
+        return rankService.getListedRank(gameTitle);
     }
 
     //If u want to select only highest rank and post only highest rank for a game use this and

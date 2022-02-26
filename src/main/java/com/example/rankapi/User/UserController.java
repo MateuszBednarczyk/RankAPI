@@ -15,11 +15,4 @@ public class UserController {
         this.appUserRepository = appUserRepository;
         this.sufixConfiguration = encodeService;
     }
-
-    @PostMapping("/createuser")
-    public void createUser(@RequestBody AppUser appUser) {
-        appUser.setPassword(sufixConfiguration.getPasswordEncoder().encode(appUser.getPassword()));
-        appUserRepository.save(appUser);
-    }
-
 }

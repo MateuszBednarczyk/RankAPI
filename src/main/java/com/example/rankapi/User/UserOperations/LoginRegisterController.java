@@ -18,11 +18,6 @@ public class LoginRegisterController {
         this.sufixConfiguration = sufixConfiguration;
     }
 
-    @RequestMapping("/")
-    public String index() {
-        return "redirect:/login";
-    }
-
     @RequestMapping("/login")
     public String login(){
 
@@ -41,14 +36,7 @@ public class LoginRegisterController {
     public ModelAndView register(AppUser appUser){
         appUser.setPassword(sufixConfiguration.getPasswordEncoder().encode(appUser.getPassword()));
         appUserRepository.save(appUser);
-        return new ModelAndView("redirect:/login");
+        return new ModelAndView("redirect:/register");
 
     }
-
-    @RequestMapping("/home")
-    public String games(){
-
-        return "home.html";
-    }
-
 }

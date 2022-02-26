@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;1,300&family=Passion+One&display=swap');
+
+*{
+
+    font-family: 'Passion One', cursive;
+    font-size: 24px;
+
+}
+
+body{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align:center;
+
+}
+
+input{
+
+    margin-top: 2%;
+
+}
+
+.loginform{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align:center;
+    border: 2px solid black;
+    width: 20%;
+    height: 15%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border-radius: 20px;
+}
