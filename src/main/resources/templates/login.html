@@ -7,15 +7,19 @@
 </head>
 <body>
     <div class = "main">
-        <div class = "loginform">
-            <form th:action="@{/login}" method="post">
-                <label for="username">Username</label>:
-                <input type="text" id="username" name="username" /> <br /><br>
-                <label for="password">Password</label>:
-                <input type="password" id="password" name="password" /> <br /><br>
-                <input type="submit" value="Log in" />
-                <a href="/signup">Register</a>
-            </form>
+        <div class = "container">
+            <div class = "loginform">
+                <form th:action="@{/login}" method="post">
+                    <label for="username">Username</label>:
+                    <input type="text" id="username" name="username" /> <br /><br>
+                    <label for="password">Password</label>:
+                    <input type="password" id="password" name="password" /> <br /><br>
+                    <div class = "form-btns">
+                        <input type="submit" value="Log in" />
+                        <button type = "button"><a href="/signup">Register</a></button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </body>

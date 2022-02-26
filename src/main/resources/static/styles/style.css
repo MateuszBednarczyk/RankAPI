@@ -9,10 +9,22 @@
 
 body{
 
+    padding: 0;
+    margin: 0;
+
+}
+
+.main{
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align:center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: rgb(187,14,219);
+    background: linear-gradient(156deg, rgba(187,14,219,1) 44%, rgba(67,29,91,1) 100%, rgba(0,212,255,1) 100%);
 
 }
 
@@ -22,16 +34,64 @@ input{
 
 }
 
+.container{
+
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
 .loginform{
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align:center;
-    border: 2px solid black;
+    align-items: center;
+    border: 2px solid white;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
     width: 20%;
     height: 15%;
     padding-top: 2%;
     padding-bottom: 2%;
     border-radius: 20px;
+    background-color: white;
+}
+
+.form-btns{
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-direction: row;
+    text-align: center;
+    width: 100%;
+    text-decoration: none;
+
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+.register-btn{
+
+    width: 100%;
+
 }

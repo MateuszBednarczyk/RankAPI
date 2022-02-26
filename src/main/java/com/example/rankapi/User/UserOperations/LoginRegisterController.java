@@ -36,7 +36,7 @@ public class LoginRegisterController {
     public ModelAndView register(AppUser appUser){
         appUser.setPassword(sufixConfiguration.getPasswordEncoder().encode(appUser.getPassword()));
         appUserRepository.save(appUser);
-        return new ModelAndView("redirect:/register");
+        return new ModelAndView("redirect:/login");
 
     }
 }
