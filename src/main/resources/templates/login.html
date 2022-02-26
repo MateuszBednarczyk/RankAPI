@@ -11,9 +11,11 @@
             <div class = "loginform">
                 <form th:action="@{/login}" method="post">
                     <label for="username">Username</label>:
-                    <input type="text" id="username" name="username" /> <br /><br>
+                    <input type="text" id="username" name="username"
+                           class  = "forminp"/> <br /><br>
                     <label for="password">Password</label>:
-                    <input type="password" id="password" name="password" /> <br /><br>
+                    <input type="password" id="password" name="password"
+                           class  = "forminp"/> <br /><br>
                     <div class = "form-btns">
                         <input type="submit" value="Log in" />
                         <button type = "button"><a href="/signup">Register</a></button>
