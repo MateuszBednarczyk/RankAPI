@@ -37,16 +37,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .failureForwardUrl("/login");
 
         http.authorizeRequests().antMatchers("/home").authenticated();
-
+        http.authorizeRequests().antMatchers("/clicker").permitAll();
         http.csrf().disable();
-    }
-
-    @Override
-    public void configure(WebSecurity web) throws Exception {
-        //Web resources
-        web.ignoring().antMatchers("/css/**");
-        web.ignoring().antMatchers("/scripts/**");
-        web.ignoring().antMatchers("/images/**");
     }
 }
 

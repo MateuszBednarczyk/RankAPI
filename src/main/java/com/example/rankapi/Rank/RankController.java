@@ -1,11 +1,14 @@
 package com.example.rankapi.Rank;
 
 import org.springframework.web.bind.annotation.*;
+
+import java.security.Principal;
 import java.util.List;
 
 import javax.transaction.Transactional;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:7070")
 public class RankController {
 
     private RankService rankService;
@@ -18,6 +21,13 @@ public class RankController {
     public List<Rank> getRank(@PathVariable String gameTitle){
 
         return rankService.getListedRank(gameTitle);
+
+    }
+
+    @GetMapping("/playerusername")
+    public String getPlayerUsername(Principal principal){
+
+        return principal.getName();
 
     }
 
