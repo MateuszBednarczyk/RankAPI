@@ -8,13 +8,13 @@ import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 @Configuration
 public class FileLoader {
 
-    @Bean
-    public ClassLoaderTemplateResolver loadClickerFiles() {
-        ClassLoaderTemplateResolver secondaryTemplateResolver = new ClassLoaderTemplateResolver();
-        secondaryTemplateResolver.setPrefix("resources/templates/Build");
-        secondaryTemplateResolver.setSuffix("*");
-        secondaryTemplateResolver.setCheckExistence(true);
-
-        return secondaryTemplateResolver;
-    }
+//    @Bean
+//    public ClassLoaderTemplateResolver loadClickerFiles() {
+//        ClassLoaderTemplateResolver secondaryTemplateResolver = new ClassLoaderTemplateResolver();
+//        secondaryTemplateResolver.setPrefix("resources/templates/Build");
+//        secondaryTemplateResolver.setSuffix("*");
+//        secondaryTemplateResolver.setCheckExistence(true);
+//
+//        return secondaryTemplateResolver;
+//    }
 }
