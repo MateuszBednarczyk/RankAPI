@@ -53,12 +53,11 @@ input{
     align-items: center;
     border: 2px solid white;
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-    width: 20%;
-    height: 15%;
-    padding-top: 2%;
-    padding-bottom: 2%;
+    height: 15vh;
+    padding: 5% 3% 2%;
     border-radius: 20px;
     background-color: white;
+
 }
 
 .form-btns{
@@ -68,7 +67,10 @@ input{
     justify-content: space-between;
     flex-direction: row;
     text-align: center;
-    width: 100%;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
     text-decoration: none;
 
 }

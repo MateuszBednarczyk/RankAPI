@@ -37,7 +37,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .failureForwardUrl("/login");
 
         http.authorizeRequests().antMatchers("/home").authenticated();
-        http.authorizeRequests().antMatchers("/clicker").permitAll();
+        http.authorizeRequests().antMatchers("/clicker").authenticated();
         http.csrf().disable();
     }
 }

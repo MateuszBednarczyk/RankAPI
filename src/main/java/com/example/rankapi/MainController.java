@@ -18,4 +18,10 @@ public class MainController {
 
         return "home.html";
     }
+
+    @RequestMapping("/clicker")
+    public String goToClicker() {
+        return "redirect:http://localhost:7070";
+    }
+
 }
