@@ -5,9 +5,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class ClickerController {
-    @RequestMapping("/clicker")
-    public String clicker(){
-
+    @RequestMapping("/")
+    public String index() {
         return "clicker.html";
     }
 }
