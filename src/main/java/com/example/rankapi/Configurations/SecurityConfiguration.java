@@ -3,11 +3,14 @@ package com.example.rankapi.Configurations;
 import com.example.rankapi.User.UserDetailsServiceImpl;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 @Configuration
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     private UserDetailsServiceImpl userDetailsServiceImpl;
@@ -32,12 +35,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .permitAll();
         http.formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/home",true)
-                .successForwardUrl("/home")
-                .failureForwardUrl("/login");
+                .loginProcessingUrl("/login")
+                .defaultSuccessUrl("/home",true);
 
-        http.authorizeRequests().antMatchers("/home").authenticated();
-        http.authorizeRequests().antMatchers("/clicker").authenticated();
+        http.authorizeRequests()
+                .antMatchers("/home")
+                .authenticated()
+                .anyRequest();
+
+        http.authorizeRequests()
+                .antMatchers("/clicker")
+                .authenticated()
+                .anyRequest();
         http.csrf().disable();
     }
 }
