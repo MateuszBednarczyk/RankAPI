@@ -18,13 +18,11 @@ public class LoginRegisterController {
     private AppUserRepository appUserRepository;
     private SufixConfiguration sufixConfiguration;
     private VerificationTokenService verificationTokenService;
-    private UserDetailsServiceImpl userDetailsServiceImpl;
 
-    public LoginRegisterController(AppUserRepository appUserRepository, SufixConfiguration sufixConfiguration, VerificationTokenService verificationTokenService, UserDetailsServiceImpl userDetailsServiceImpl) {
+    public LoginRegisterController(AppUserRepository appUserRepository, SufixConfiguration sufixConfiguration, VerificationTokenService verificationTokenService) {
         this.appUserRepository = appUserRepository;
         this.sufixConfiguration = sufixConfiguration;
         this.verificationTokenService = verificationTokenService;
-        this.userDetailsServiceImpl = userDetailsServiceImpl;
     }
 
     @RequestMapping("/login")
