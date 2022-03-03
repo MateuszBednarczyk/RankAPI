@@ -40,13 +40,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         http.authorizeRequests()
                 .antMatchers("/home")
-                .authenticated()
-                .anyRequest();
+                .authenticated();
 
         http.authorizeRequests()
                 .antMatchers("/clicker")
-                .authenticated()
-                .anyRequest();
+                .authenticated();
         http.csrf().disable();
     }
 }

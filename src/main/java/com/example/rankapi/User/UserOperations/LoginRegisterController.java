@@ -3,6 +3,7 @@ package com.example.rankapi.User.UserOperations;
 import com.example.rankapi.Configurations.SufixConfiguration;
 import com.example.rankapi.User.AppUser;
 import com.example.rankapi.User.AppUserRepository;
+import com.example.rankapi.User.UserDetailsServiceImpl;
 import com.example.rankapi.User.VerificationToken.VerificationTokenService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,11 +18,13 @@ public class LoginRegisterController {
     private AppUserRepository appUserRepository;
     private SufixConfiguration sufixConfiguration;
     private VerificationTokenService verificationTokenService;
+    private UserDetailsServiceImpl userDetailsServiceImpl;
 
-    public LoginRegisterController(AppUserRepository appUserRepository, SufixConfiguration sufixConfiguration, VerificationTokenService verificationTokenService) {
+    public LoginRegisterController(AppUserRepository appUserRepository, SufixConfiguration sufixConfiguration, VerificationTokenService verificationTokenService, UserDetailsServiceImpl userDetailsServiceImpl) {
         this.appUserRepository = appUserRepository;
         this.sufixConfiguration = sufixConfiguration;
         this.verificationTokenService = verificationTokenService;
+        this.userDetailsServiceImpl = userDetailsServiceImpl;
     }
 
     @RequestMapping("/login")
@@ -40,7 +43,9 @@ public class LoginRegisterController {
 
     @RequestMapping("/register")
     public ModelAndView register(AppUser appUser, HttpServletRequest request){
+        System.out.println(appUser.getPassword());
         appUser.setPassword(sufixConfiguration.getPasswordEncoder().encode(appUser.getPassword()));
+        System.out.println(appUser.getPassword());
         appUserRepository.save(appUser);
         verificationTokenService.generateVerificationToken(appUser,request);
         return new ModelAndView("redirect:/login");
