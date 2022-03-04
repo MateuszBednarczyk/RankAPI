@@ -36,11 +36,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http.formLogin()
                 .loginPage("/login")
                 .loginProcessingUrl("/login")
-                .defaultSuccessUrl("/home",true).successForwardUrl("/home");
+                .defaultSuccessUrl("/home",true)
+                .successForwardUrl("/home");
 
         http.authorizeRequests()
-                .antMatchers("/home")
-                .authenticated();
+                .antMatchers("/", "/home/*", "/alert/*", "/scheduler/*", "/agent/*", "/ftp/*", "/smtp/*", "/sql/*").access("hasRole('USER')");
 
         http.authorizeRequests()
                 .antMatchers("/clicker")
