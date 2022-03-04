@@ -17,7 +17,9 @@ public class AppUser implements UserDetails {
     private long userid;
     private String username;
     private String password;
-    private boolean isEnabled;
+
+    @Column(name = "enabled")
+    private boolean enabled;
 
     public void setUserid(long userId) {
         this.userid = userId;
@@ -31,8 +33,9 @@ public class AppUser implements UserDetails {
         this.password = password;
     }
 
+
     public void setEnabled(boolean enabled) {
-        isEnabled = enabled;
+        this.enabled = enabled;
     }
 
     @Override
@@ -67,7 +70,7 @@ public class AppUser implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 
     @Override
@@ -76,7 +79,7 @@ public class AppUser implements UserDetails {
                 "userid=" + userid +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", isEnabled=" + isEnabled +
+                ", isEnabled=" + enabled +
                 '}';
     }
 }

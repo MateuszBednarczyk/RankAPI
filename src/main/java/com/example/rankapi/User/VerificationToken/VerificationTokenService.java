@@ -6,6 +6,7 @@ import com.example.rankapi.User.AppUserRepository;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.transaction.Transactional;
 import java.util.UUID;
 
 @Service
@@ -34,6 +35,7 @@ public class VerificationTokenService {
 
     }
 
+    @Transactional
     public void verify(String token){
 
        AppUser appUser = verificationTokenRepository.findByValue(token).getAppUser();

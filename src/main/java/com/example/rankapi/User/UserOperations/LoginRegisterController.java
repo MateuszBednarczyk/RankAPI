@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.transaction.Transactional;
 
 @Controller
 public class LoginRegisterController {
@@ -50,6 +51,7 @@ public class LoginRegisterController {
 
     }
 
+    @Transactional
     @RequestMapping("/verify")
     public ModelAndView verify(@RequestParam String token){
         verificationTokenService.verify(token);
