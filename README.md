@@ -1,5 +1,6 @@
-It's an springboot app which is api for unity games. 
+It's an springboot and thymeleaf app which is api for unity games. 
 You can use it for creating ranking in your game.
+(working at angular front)
 
 # <b>USAGE</b>
     
