@@ -3,10 +3,12 @@ package com.example.rankapi;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
-@CrossOrigin(origins = "http://localhost:7070")
+@CrossOrigin(origins = "*")
 public class MainController {
 
     @RequestMapping("/")
@@ -20,9 +22,13 @@ public class MainController {
         return "home.html";
     }
 
+    @CrossOrigin
     @RequestMapping("/clicker")
-    public String goToClicker() {
-        return "redirect:http://localhost:7070";
+    public ModelAndView goToClicker(HttpServletRequest request) {
+        //http://localhost:7070/
+        //http://192.168.254.115:7070/
+        String url = "http://" + request.getServerName() + ":" + "7070";
+        return new ModelAndView("redirect:" + url);
     }
 
 }
