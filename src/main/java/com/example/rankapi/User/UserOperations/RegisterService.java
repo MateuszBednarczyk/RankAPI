@@ -13,13 +13,11 @@ import javax.servlet.http.HttpServletRequest;
 public class RegisterService {
 
     private AppUserRepository appUserRepository;
-    private VerificationTokenRepository verificationTokenRepository;
     private VerificationTokenService verificationTokenService;
     private SufixConfiguration sufixConfiguration;
 
-    public RegisterService(AppUserRepository appUserRepository, VerificationTokenRepository verificationTokenRepository, VerificationTokenService verificationTokenService, SufixConfiguration sufixConfiguration) {
+    public RegisterService(AppUserRepository appUserRepository, VerificationTokenService verificationTokenService, SufixConfiguration sufixConfiguration) {
         this.appUserRepository = appUserRepository;
-        this.verificationTokenRepository = verificationTokenRepository;
         this.verificationTokenService = verificationTokenService;
         this.sufixConfiguration = sufixConfiguration;
     }
