@@ -25,8 +25,6 @@ public class MainController {
     @CrossOrigin
     @RequestMapping("/clicker")
     public ModelAndView goToClicker(HttpServletRequest request) {
-        //http://localhost:7070/
-        //http://192.168.254.115:7070/
         String url = "http://" + request.getServerName() + ":" + "7070";
         return new ModelAndView("redirect:" + url);
     }
