@@ -3,7 +3,6 @@ package com.example.rankapi.User.UserOperations;
 import com.example.rankapi.Configurations.SufixConfiguration;
 import com.example.rankapi.User.AppUser;
 import com.example.rankapi.User.AppUserRepository;
-import com.example.rankapi.User.VerificationToken.VerificationTokenRepository;
 import com.example.rankapi.User.VerificationToken.VerificationTokenService;
 import org.springframework.stereotype.Service;
 

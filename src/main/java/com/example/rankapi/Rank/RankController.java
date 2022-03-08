@@ -8,7 +8,7 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:7070")
+@CrossOrigin(origins = "*")
 public class RankController {
 
     private RankService rankService;

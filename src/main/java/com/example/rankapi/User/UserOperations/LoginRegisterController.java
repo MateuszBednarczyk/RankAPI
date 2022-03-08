@@ -5,6 +5,7 @@ import com.example.rankapi.User.AppUser;
 import com.example.rankapi.User.AppUserRepository;
 import com.example.rankapi.User.VerificationToken.VerificationTokenService;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
 
 @Controller
+@CrossOrigin(origins = "*")
 public class LoginRegisterController {
 
     private AppUserRepository appUserRepository;
