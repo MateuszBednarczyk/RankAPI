@@ -29,4 +29,11 @@ public class MainController {
         return new ModelAndView("redirect:" + url);
     }
 
+    @CrossOrigin
+    @RequestMapping("/snake")
+    public ModelAndView goToSnake(HttpServletRequest request) {
+        String url = "http://" + request.getServerName() + ":" + "6060";
+        return new ModelAndView("redirect:" + url);
+    }
+
 }
