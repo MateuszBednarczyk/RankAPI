@@ -36,4 +36,11 @@ public class MainController {
         return new ModelAndView("redirect:" + url);
     }
 
+    @CrossOrigin
+    @RequestMapping("/breakout")
+    public ModelAndView goToBreakout(HttpServletRequest request) {
+        String url = "http://" + request.getServerName() + ":" + "5050";
+        return new ModelAndView("redirect:" + url);
+    }
+
 }

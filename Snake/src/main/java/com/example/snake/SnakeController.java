@@ -12,7 +12,7 @@ public class SnakeController {
     @GetMapping("/")
     public String snake(){
 
-        return "snake.html";
+        return "index.html";
 
     }
 
