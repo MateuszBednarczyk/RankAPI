@@ -23,7 +23,7 @@ import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 public class AuthorizationFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        if(request.getServletPath().equals("/login")){
+        if(request.getServletPath().equals("/refreshtoken")){
 
             filterChain.doFilter(request,response);
 
@@ -55,7 +55,6 @@ public class AuthorizationFilter extends OncePerRequestFilter {
             }else{
 
                 filterChain.doFilter(request,response);
-
             }
         }
     }
