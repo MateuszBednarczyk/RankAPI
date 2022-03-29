@@ -1,5 +1,7 @@
 package com.example.rankapi.Configurations;
 
+import com.example.rankapi.Authentication.Authorization;
+import com.example.rankapi.Authentication.JwtAuthenticationFilter;
 import com.example.rankapi.User.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
@@ -56,7 +58,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .rememberMe()
                 .rememberMeCookieName("remember")
-                .tokenValiditySeconds(86400);
+                .tokenValiditySeconds(86400)
+                        .and()
+                                .addFilter(new Authorization(authenticationManager()))
+                                        .addFilter(new JwtAuthenticationFilter(authenticationManager()));
 
                 //permissions
         http.authorizeRequests().antMatchers().authenticated();
