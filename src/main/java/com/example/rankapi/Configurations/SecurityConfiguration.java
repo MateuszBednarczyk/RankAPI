@@ -1,6 +1,7 @@
 package com.example.rankapi.Configurations;
 
 import com.example.rankapi.CustomAuthenticationFilter.AuthenticationFilter;
+import com.example.rankapi.CustomAuthenticationFilter.AuthorizationFilter;
 import com.example.rankapi.User.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
@@ -11,6 +12,7 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 
 import static org.springframework.http.HttpMethod.GET;
@@ -65,13 +67,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .rememberMe()
                 .rememberMeCookieName("remember")
                 .tokenValiditySeconds(86400);
+
         //permissions
         http.authorizeRequests().antMatchers().authenticated();
         http.authorizeRequests()
                 .antMatchers("/clicker", "/snake", "/breakout")
                 .authenticated();
         http.csrf().disable();
-
+        http.addFilter(authenticationFilter);
+        http.addFilterBefore(new AuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
     }
 }
 
