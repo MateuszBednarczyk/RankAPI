@@ -1,5 +1,6 @@
 package com.example.rankapi.Configurations;
 
+import com.example.rankapi.CustomAuthenticationFilter.AuthenticationFilter;
 import com.example.rankapi.User.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
@@ -9,6 +10,12 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
+
+
+import static org.springframework.http.HttpMethod.GET;
+import static org.springframework.http.HttpMethod.POST;
+
 
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true)
@@ -43,13 +50,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     //configs
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
+        AuthenticationFilter authenticationFilter = new AuthenticationFilter((authenticationManagerBean()));
         http.authorizeRequests()
                 //login and register
                 .antMatchers("/register")
                 .permitAll()
-                .antMatchers("/home")
-                .hasAnyRole()
+                .antMatchers("/home").authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
@@ -59,12 +65,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .rememberMe()
                 .rememberMeCookieName("remember")
                 .tokenValiditySeconds(86400);
-                //permissions
+        //permissions
         http.authorizeRequests().antMatchers().authenticated();
         http.authorizeRequests()
-                .antMatchers("/clicker", "/home")
+                .antMatchers("/clicker", "/snake", "/breakout")
                 .authenticated();
         http.csrf().disable();
+
     }
 }
 
