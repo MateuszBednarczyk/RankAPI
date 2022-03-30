@@ -32,33 +32,4 @@ public class UserController {
         this.appUserRepository = appUserRepository;
         this.sufixConfiguration = encodeService;
     }
-
-    @GetMapping("/refreshtoken")
-    public void refreshToken(HttpServletRequest request, HttpServletResponse response){
-        String authorizationHeader = request.getHeader(AUTHORIZATION);
-        if(authorizationHeader != null && authorizationHeader.startsWith("Bearer")) {
-            try {
-                String refreshToken = authorizationHeader.substring(7);
-                Algorithm algorithm = Algorithm.HMAC256("secret".getBytes());
-                JWTVerifier verifier = JWT.require(algorithm).build();
-                DecodedJWT decodedJWT = verifier.verify(refreshToken);
-                String username = decodedJWT.getSubject();
-                AppUser user = appUserRepository.findAppUserByUsername(username);
-                String accessToken = JWT.create()
-                        .withSubject(user.getUsername())
-                        .withExpiresAt(new Date(System.currentTimeMillis() + 10 * 60 * 1000))
-                        .withIssuer(request.getRequestURL().toString())
-                        .withClaim("roles", user.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.toList()))
-                        .sign(algorithm);
-
-            } catch (Exception exception) {
-
-
-            }
-        }else {
-            throw new RuntimeException("Missing or wrong token");
-        }
-
-    }
-
 }
