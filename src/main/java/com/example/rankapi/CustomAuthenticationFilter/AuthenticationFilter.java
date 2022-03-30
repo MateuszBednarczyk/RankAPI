@@ -67,8 +67,6 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
         Map<String, String> tokens = new HashMap<>();
         tokens.put("access_token",accessToken);
         tokens.put("refresh_token",accessToken);
-//        response.setContentType(APPLICATION_JSON_VALUE);
-//        new ObjectMapper().writeValue(response.getOutputStream(), tokens);
         response.setHeader("access_token",accessToken);
         response.setHeader("refresh_token",refreshToken);
         chain.doFilter(request,response);
