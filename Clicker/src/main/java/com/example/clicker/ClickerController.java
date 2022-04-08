@@ -11,7 +11,7 @@ public class ClickerController {
     @CrossOrigin
     @GetMapping("/")
     public String index() {
-        return "clicker.html";
+        return "index.html";
     }
 
 }
